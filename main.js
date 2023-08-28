@@ -16,15 +16,32 @@ function generateMonth( monthName, nbDays)
     return monthHTML;
 }
 
+function getMonthList()
+{
+    return [
+        new Month("Janvier", 31, 1),
+        new Month("Février", 28, 2),
+        new Month("Mars", 31, 3),
+        new Month("Avril", 30, 4),
+        new Month("Mai", 31, 5),
+        new Month("Juin", 30, 6),
+        new Month("Juillet", 31, 7),
+        new Month("Août", 31, 8),
+        new Month("Septembre", 30, 9),
+        new Month("Octobre", 31, 10),
+        new Month("Novembre", 30, 11),
+        new Month("Décembre", 31, 12)
+    ];
+}
+
 function createCalendar()
 {
     let calendar = document.createElement("main");
-    const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-    const numberOfDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const months = getMonthList();
 
     let i = 0;
     while (i<months.length) {
-        const month = generateMonth(months[i], numberOfDays[i]);
+        const month = generateMonth(months[i].name, months[i].numberOfDays);
         calendar.appendChild(month);
         i++;
     }
