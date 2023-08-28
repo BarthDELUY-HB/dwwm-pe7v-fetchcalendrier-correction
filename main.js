@@ -42,9 +42,14 @@ function fetchHolidays()
         }
         return response.json();
     })
-    .then((json) => {
+    .then((dates) => {
+        let i = 0;
+        while (i < dates.length) {
+            console.log(`${dates[i].date} : ${dates[i].localName}`);
+            i++;
+        }
         //document.querySelector('#calendar > section:nth-child(4) > article:nth-child(10)')
-        console.table(json)
+        console.table(dates)
     }) // Code appelé si la réponse est OK
     .catch((err) => console.error(`Fetch problem: ${err.message}`));
 }
