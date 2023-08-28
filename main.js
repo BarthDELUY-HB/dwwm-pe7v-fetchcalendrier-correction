@@ -2,8 +2,17 @@
 
 function generateMonth( monthName, nbDays)
 {
-    let monthHTML = "";
-
+    let monthHTML = document.createElement("section");
+    let header = document.createElement("h2");
+    header.textContent = monthName;
+    monthHTML.appendChild(header);
+    let i = 0;
+    while (i<nbDays) {
+        let day = document.createElement("article");
+        day.textContent = i+1;
+        monthHTML.appendChild(day);
+        i++;
+    }
     return monthHTML;
 }
 
