@@ -18,14 +18,14 @@ function generateMonth( monthName, nbDays)
 
 function createCalendar()
 {
-    let calendar = "";
+    let calendar = document.createElement("main");
     const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
     const numberOfDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     let i = 0;
     while (i<months.length) {
         const month = generateMonth(months[i], numberOfDays[i]);
-        console.log(month);
+        calendar.appendChild(month);
         i++;
     }
 
@@ -37,4 +37,5 @@ window.addEventListener(
     function (event) {
         const calendrier = createCalendar();
         console.log(calendrier);
+        document.querySelector('#calendar').innerHTML = calendrier.innerHTML;
 });
