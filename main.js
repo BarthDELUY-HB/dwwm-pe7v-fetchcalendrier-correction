@@ -32,10 +32,29 @@ function createCalendar()
     return calendar;
 }
 
+function fetchHolidays()
+{
+    let url = 'https://date.nager.at/api/v3/PublicHolidays/2023/fr';
+    fetch(url)
+    .then((response) => { // Code appelé quand le navigateur reçoit la réponse
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then((json) => {
+        //document.querySelector('#calendar > section:nth-child(4) > article:nth-child(10)')
+        console.table(json)
+    }) // Code appelé si la réponse est OK
+    .catch((err) => console.error(`Fetch problem: ${err.message}`));
+}
+
+
 window.addEventListener(
     'DOMContentLoaded',
     function (event) {
         const calendrier = createCalendar();
         console.log(calendrier);
         document.querySelector('#calendar').innerHTML = calendrier.innerHTML;
+        fetchHolidays();
 });
