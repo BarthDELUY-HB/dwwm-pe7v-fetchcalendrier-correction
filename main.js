@@ -45,11 +45,21 @@ function fetchHolidays()
     .then((dates) => {
         let i = 0;
         while (i < dates.length) {
-            console.log(`${dates[i].date} : ${dates[i].localName}`);
+            const holiday = dates[i];
+            console.log(`${holiday.date} : ${holiday.localName}`);
+            const dateElements = holiday.date.split('-');
+            const monthNum = dateElements[1];
+            const dayNum = dateElements[2];
+            let selector = '#calendar > section:nth-child(' + monthNum + ') > article:nth-child(' + (dayNum*1+1) + ')';
+            console.log(selector);
+            let article = document.querySelector(selector);
+            article.textContent = article.textContent + " " + holiday.localName;
+            article.classList.add('holiday');
+            //document.querySelector('#calendar > section:nth-child(4) > article:nth-child(10)')
             i++;
         }
-        //document.querySelector('#calendar > section:nth-child(4) > article:nth-child(10)')
-        console.table(dates)
+        
+        // console.table(dates)
     }) // Code appelé si la réponse est OK
     .catch((err) => console.error(`Fetch problem: ${err.message}`));
 }
