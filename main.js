@@ -1,13 +1,13 @@
 "use strict";
 
-function generateMonth( monthName, nbDays)
+function generateMonth(month)
 {
     let monthHTML = document.createElement("section");
     let header = document.createElement("h2");
-    header.textContent = monthName;
+    header.textContent = month.name;
     monthHTML.appendChild(header);
     let i = 0;
-    while (i<nbDays) {
+    while (i<month.numberOfDays) {
         let day = document.createElement("article");
         day.textContent = i+1;
         monthHTML.appendChild(day);
@@ -41,7 +41,7 @@ function createCalendar()
 
     let i = 0;
     while (i<months.length) {
-        const month = generateMonth(months[i].name, months[i].numberOfDays);
+        const month = generateMonth(months[i]);
         calendar.appendChild(month);
         i++;
     }
