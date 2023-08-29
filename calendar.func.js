@@ -46,7 +46,7 @@ function fetchHolidays() {
                 const dateElements = holiday.date.split('-');
                 const monthNum = dateElements[1];
                 const dayNum = dateElements[2];
-                let selector = '#calendar > section:nth-child(' + monthNum + ') > article:nth-child(' + (dayNum * 1 + 1) + ')';
+                let selector = '#section-calendrier > section:nth-child(' + monthNum + ') > article:nth-child(' + (dayNum * 1 + 1) + ')';
                 console.log(selector);
                 let article = document.querySelector(selector);
                 article.textContent = article.textContent + " " + holiday.localName;

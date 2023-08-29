@@ -5,6 +5,6 @@ window.addEventListener(
     function (event) {
         const calendrier = createCalendar();
         console.log(calendrier);
-        document.querySelector('#calendar').innerHTML = calendrier.innerHTML;
+        document.querySelector('#section-calendrier').innerHTML = calendrier.innerHTML;
         fetchHolidays();
     });

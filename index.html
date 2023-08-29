@@ -6,23 +6,41 @@
     <title>Calendrier 2023</title>
     <script type="module" src="main.js"></script>
     <style>
-        #calendar {
+        #section-calendrier {
             color: dimgray;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
-        #calendar .closed {
+        #section-calendrier .closed {
             background-color: cadetblue;
             color: lightgray
         }
-        #calendar .holiday {
+        #section-calendrier .holiday {
             background-color: goldenrod;
             color: black;
+        }
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <main id="calendar"></main>
+    <header>
+        <nav>
+            <a href="/eleves" id="lien-eleves">Eleves</a>
+            <a href="/calendrier" id="lien-calendrier">Calendrier</a>
+        </nav>
+    </header>
+    <main>
+        <section id="section-eleves">
+            <ul>
+                <li>Eleve 1</li>
+                <li>Eleve 2</li>
+                <li>Eleve 3</li>
+            </ul>
+        </section>
+        <section id="section-calendrier" class="hidden"></section>
+    </main>
 </body>
 </html>
