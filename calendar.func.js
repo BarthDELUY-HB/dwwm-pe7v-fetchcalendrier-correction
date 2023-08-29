@@ -1,5 +1,13 @@
 import { getMonthList } from "./month.func.js";
 
+function manageCalendar()
+{
+    const calendrier = createCalendar();
+    console.log(calendrier);
+    document.querySelector('#section-calendrier').innerHTML = calendrier.innerHTML;
+    fetchHolidays();
+}
+
 function generateMonth(month) {
     let monthHTML = document.createElement("section");
     let header = document.createElement("h2");
@@ -60,4 +68,4 @@ function fetchHolidays() {
         .catch((err) => console.error(`Fetch problem: ${err.message}`));
 }
 
-export { createCalendar,fetchHolidays };
+export { manageCalendar };
